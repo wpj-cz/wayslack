@@ -383,7 +383,7 @@ class Downloader(object):
                 if etag:
                     etag = etag.strip('"')
                 if etag and hash.hexdigest() != etag:
-                    raise Exception("Downloading %r: checksum does not match. etag %r != md5 %r\n" %(
+                    print("Downloading %r: checksum does not match. etag %r != md5 %r\n" %(
                         url,
                         etag,
                         hash.hexdigest(),
