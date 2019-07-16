@@ -379,7 +379,9 @@ class Downloader(object):
                 for chunk in res.iter_content(4096):
                     hash.update(chunk)
                     f.write(chunk)
-                etag = res.headers.get("etag").strip('"')
+                etag = res.headers.get("etag")
+                if etag:
+                    etag = etag.strip('"')
                 if etag and hash.hexdigest() != etag:
                     raise Exception("Downloading %r: checksum does not match. etag %r != md5 %r\n" %(
                         url,
