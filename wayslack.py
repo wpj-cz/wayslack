@@ -688,7 +688,7 @@ class ArchiveGroups(BaseArchiver):
             )
             chan_name_dir.symlink_to(symlink_target)
 
-        archive_channels = self.archive.path / "groups.json"
+        archive_channels = self.archive.path / "mpims.json"
         if not archive_channels.exists():
             if archive_channels.is_symlink():
                 archive_channels.unlink()
